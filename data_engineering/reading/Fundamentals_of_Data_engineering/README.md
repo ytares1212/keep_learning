@@ -1,1 +1,0 @@
-# Record of my readings
