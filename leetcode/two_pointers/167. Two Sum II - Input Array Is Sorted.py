@@ -39,6 +39,3 @@ class Solution:
                 left += 1
             else:
                 right -= 1
-# why list index out of range
-# the problem is that the input array is 1-indexed, but in Python, list indices are 0-indexed. So when we return the indices, we need to add 1 to each index to convert them from 0-indexed to 1-indexed.
-# For example, if the two numbers that add up to the target are at indices 0 and 1 in the 0-indexed array, we need to return [1, 2] instead of [0, 1] to match the 1-indexed requirement of the problem.
