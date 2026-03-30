@@ -23,6 +23,7 @@
 # Explanation: Both 'a's from t must be included in the window.
 # Since the largest window of s only has one 'a', return empty string.
 from typing import List
+from collections import Counter
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
         # We can use the sliding window technique to solve this problem. We will maintain a window of 
@@ -32,7 +33,7 @@ class Solution:
         # characters in t. Once we have a valid window, we will contract it by moving the left pointer to 
         # the right until we no longer have a valid window. During this process, we will update the 
         # minimum length of a valid window found so far and the starting index of that window.
-        from collections import Counter
+        
         t_freq = Counter(t)
         window_freq = {}
         have, need = 0, len(t_freq)
