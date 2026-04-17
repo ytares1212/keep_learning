@@ -62,3 +62,10 @@ class MinStack:
 # obj.pop()
 # param_3 = obj.top()
 # param_4 = obj.getMin()
+res = ''
+for char in 'CURL X POST':
+    if char.isupper():
+        res += chr((ord(char) + 2 - 65) % 26 + 65)
+    else:
+        res += chr((ord(char) + 2 - 97) % 26 + 97)
+print(res)
