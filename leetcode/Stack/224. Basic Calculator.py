@@ -25,6 +25,9 @@ class Solution:
 
         for char in s:
             if char.isdigit():
+              # why *10 here? because we are building the current number from its digits. 
+              # For example, if we have '1' followed by '2', we want to form the number 12. So when we see '1', current_number becomes 1. 
+              # When we see '2', we need to multiply the existing current_number (which is 1) by 10 and then add the new digit (2) to get 12.
                 current_number = current_number * 10 + int(char)
             elif char in ['+', '-']:
                 current_result += sign * current_number
