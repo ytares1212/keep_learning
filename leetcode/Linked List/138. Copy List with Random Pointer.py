@@ -46,6 +46,8 @@ class Solution:
         current = head
         while current:
             new_node = Node(current.val, current.next)
+            # why not let curr = newnode? 
+            # because we need to keep track of the original current node to move to the next original node
             current.next = new_node
             current = new_node.next
 
