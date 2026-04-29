@@ -22,8 +22,6 @@ class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
         if not root:
             return 0
-        # why left_depth return a int? 
-        # because we need to compare left_depth and right_depth, and return the max of them + 1
         left_depth = self.maxDepth(root.left)
         right_depth = self.maxDepth(root.right)
         return max(left_depth, right_depth) + 1
