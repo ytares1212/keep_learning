@@ -35,21 +35,24 @@ class TreeNode:
         self.right = right
 class BSTIterator:
 
-    def __init__(self, root: Optional[TreeNode]):
+    def __init__(self, root):
         self.stack = []
-        self._leftmost_inorder(root) 
-    def _leftmost_inorder(self, root):
-        while root:
-            self.stack.append(root)
-            root = root.left
+        self.pushLeft(root)
 
-    def next(self) -> int:
-        topmost_node = self.stack.pop()
-        if topmost_node.right:
-            self._leftmost_inorder(topmost_node.right)
-        return topmost_node.val
+    def pushLeft(self, node):
+        while node:
+            self.stack.append(node)
+            node = node.left
 
-    def hasNext(self) -> bool:
+    def next(self):
+        node = self.stack.pop()
+
+        if node.right:
+            self.pushLeft(node.right)
+
+        return node.val
+
+    def hasNext(self):
         return len(self.stack) > 0
 
 
