@@ -16,14 +16,16 @@ class TreeNode:
         self.right = right
 class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
-        if not root:
-            return 
-        node_list = []
+        self.k = k
+        self.result = None
         def inorder(node):
-            if not node:
-                return 
+            if not node or self.result is not None:
+                return
             inorder(node.left)
-            node_list.append(node.val)
+            self.k -= 1
+            if self.k == 0:
+                self.result = node.val
+                return
             inorder(node.right)
         inorder(root)
-        return node_list[k-1]
+        return self.result
